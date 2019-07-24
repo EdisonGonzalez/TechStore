@@ -10,6 +10,7 @@ import { ModeloProductos } from 'src/app/interface/modelo-productos';
 export class CatalogoComponent implements OnInit {
 
   productos: ModeloProductos[];
+  showData:boolean;
 
   constructor(private consumoApiService: ConsumoApiService) { }
 

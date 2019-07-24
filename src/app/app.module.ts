@@ -10,6 +10,7 @@ import { NavBarComponent } from './component/nav-bar/nav-bar.component';
 import { ModalComponent } from './component/modal/modal.component';
 
 import { HttpClientModule } from '@angular/common/http';
+import { CardComponent } from './component/card/card.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { HttpClientModule } from '@angular/common/http';
     PedidosComponent,
     ProductosComponent,
     NavBarComponent,
-    ModalComponent
+    ModalComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,
