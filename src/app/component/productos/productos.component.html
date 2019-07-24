@@ -1,3 +1,40 @@
-<p>
-  productos works!
-</p>
+<div class="row mt-4">
+  <h3>Lista</h3>
+  <div *ngFor="let producto of productssel; let i = index">
+    <div class="col-lg-7">
+      <div class="card mb-3">
+        <div class="row no-gutters">
+          <div class="col-md-4">
+            <img [src]='producto.imagen' class="card-img" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">{{producto.descripcion}}</h5>
+              <p class="card-text">Precio: {{producto.precio}}</p>
+              <form>
+                <div class="form-group">
+                  <label for="selectCantidad">Cantidad:</label>
+                  <select class="form-control" id="selectCantidad">
+                    <option *ngFor="let itemCantidad of things[0]">{{itemCantidad}}</option>
+                    <!--
+                                <option *ngFor="let item of producto; let i=index">{{i+1}</option>
+                                -->
+                  </select>
+                  <label for="selectCiudad">Color:</label>
+                  <select class="form-control" id="selectCiudad">
+                    <option *ngFor="let itemCiudad of ciudades">{{itemCiudad}}</option>
+                    <!--
+                                  <option *ngFor="let item of producto; let i=index">{{i+1}</option>
+                                  -->
+                  </select>
+                </div>
+              </form>
+              <p class="card-text"><small class="text-muted">{{producto.categoria}}</small></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-5 bg-dark"></div>
+</div>
