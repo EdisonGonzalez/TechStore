@@ -7,6 +7,7 @@ import { CatalogoComponent } from './component/catalogo/catalogo.component';
 import { PedidosComponent } from './component/pedidos/pedidos.component';
 import { ProductosComponent } from './component/productos/productos.component';
 import { NavBarComponent } from './component/nav-bar/nav-bar.component';
+import { ModalComponent } from './component/modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { NavBarComponent } from './component/nav-bar/nav-bar.component';
     CatalogoComponent,
     PedidosComponent,
     ProductosComponent,
-    NavBarComponent
+    NavBarComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
