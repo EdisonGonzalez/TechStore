@@ -6,6 +6,6 @@
       <p class="font-weight-light">Precio:<b class="card-text">{{precio}}</b></p>
       <p class="font-weight-light">Disponibles:<b class="card-text">{{cantidadDisponible}}</b></p>
     </div>
-    <button class="btn btn-primary rounded-circle" [disabled]="disabled"><i class="fas fa-shopping-cart"></i></button>
+    <button class="btn btn-primary rounded-circle" [disabled]="disabled" (click)="addCar()"><i class="fas fa-shopping-cart"></i></button>
   </div>
 </div>

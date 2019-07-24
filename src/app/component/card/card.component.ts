@@ -11,11 +11,21 @@ export class CardComponent implements OnInit {
   @Input() descripcion;
   @Input() precio;
   @Input() cantidadDisponible;
-  @Input() disabled;
+  disabled:boolean;
 
   constructor() { }
 
   ngOnInit() {
+    console.log(this.cantidadDisponible);
+    if (this.cantidadDisponible === 0) {
+      this.disabled = true;
+    } else {
+      this.disabled = false;
+    }
+  }
+
+  addCar(){
+    this.disabled = true;
   }
 
 }
