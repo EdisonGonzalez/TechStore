@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-modal',
@@ -7,9 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ModalComponent implements OnInit {
 
+  @Input() imagenProd;
+  @Input() id;
+
+  display: any;
   constructor() { }
 
   ngOnInit() {
+   console.log(this.imagenProd);
+
+  }
+
+  openModal(img) {
+    // console.log(this.imagen);
+    this.display = 'block';
   }
 
 }

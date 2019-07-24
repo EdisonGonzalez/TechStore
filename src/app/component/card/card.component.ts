@@ -16,8 +16,9 @@ export class CardComponent implements OnInit {
   @Input() idProducto: number;
   @Input() categoria: string;
   @Input() precio: number;
+  imagenProd: string;
 
-  disabled:boolean;
+  disabled: boolean;
   productosSeleccionados: ModeloProductos[];
   cantidadCompras: number; //Provista desde el servicio, segun la cantidad de clicks
   productssel: ModeloProductos[]; //Valor que inicialmente traemos del servicio y que posteriormente compartimos a los productos
@@ -46,7 +47,8 @@ export class CardComponent implements OnInit {
     )
   }
 
-  addCar(){
+  addCar() {
+    this.disabled = true;
     this.dataService.changecurrentCantidadCompras(this.cantidadCompras + 1); //Sumando uno al badge (Y actualizando el servicio)
     this.productoCarta = {
       'descripcion': this.descripcion,
@@ -59,6 +61,11 @@ export class CardComponent implements OnInit {
     };
     this.productssel.push(this.productoCarta); //Agregando a los productos seleccionados
     this.dataService.changecurrentDataProdsSel(this.productssel); //Sumando un producto a la canasta temporal (Y actualizando el servicio)
+  }
+
+  modal(img) {
+    this.imagenProd = img;
+    console.log(this.imagenProd);
   }
 
 }
