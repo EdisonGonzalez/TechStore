@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ConsumoApiService } from 'src/app/service/consumo-api.service';
+import { ModeloProductos } from 'src/app/interface/modelo-productos';
 
 @Component({
   selector: 'app-catalogo',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CatalogoComponent implements OnInit {
 
-  constructor() { }
+  productos: ModeloProductos[];
+
+  constructor(private consumoApiService: ConsumoApiService) { }
 
   ngOnInit() {
+    this.consumoApiService.getProducts().subscribe(
+      data => {
+        console.log("Respuesta Exitosa de getProducts: ", data);
+        this.productos = data;
+      },
+      error => {
+        console.log("Respuesta Fallida de getProducts: ", error);
+      }
+    );
   }
 
 }

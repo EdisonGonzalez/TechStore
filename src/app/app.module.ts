@@ -9,6 +9,8 @@ import { ProductosComponent } from './component/productos/productos.component';
 import { NavBarComponent } from './component/nav-bar/nav-bar.component';
 import { ModalComponent } from './component/modal/modal.component';
 
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +22,8 @@ import { ModalComponent } from './component/modal/modal.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
