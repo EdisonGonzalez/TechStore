@@ -1,3 +1,5 @@
+import { ModeloSolicitud } from './../../interface/modelo-solicitud';
+import { ModeloPedido } from '../../interface/modelo-pedido';
 import { CITIES } from './../../const/CITIES';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { COLORS } from './../../const/COLORS';
@@ -22,6 +24,10 @@ export class ProductosComponent implements OnInit {//AfterViewInit { //OnInit {
   valueCantColor: any = [];
   tamaLista: number;
   contadorComprar: number = 0;
+  pedidoNew: ModeloPedido;
+  prodPedidos: ModeloPedido[] = [];
+  prodSolicitados: ModeloSolicitud[];
+  solicitud: ModeloSolicitud;
 
   constructor(
     private dataService: SharingDataService,
@@ -53,6 +59,35 @@ export class ProductosComponent implements OnInit {//AfterViewInit { //OnInit {
 
   onSubmit(){
     alert("Se envio");
+    this.obtener_localstorage("pedidos");
+    this.grabar_localstorage();
+  }
+
+  obtener_localstorage(item: string){
+    if(JSON.parse(localStorage.getItem(item)) == null){
+      console.log("Locale Storage vacio");
+      this.prodSolicitados = [];
+    } else {
+      this.prodSolicitados = JSON.parse(localStorage.getItem(item));
+      console.log("Locale Storage NO ESTA Vacio");
+    }
+    console.log("Obtenido del locale Storage: ", this.prodSolicitados);
+  }
+
+  grabar_localstorage(){
+    this.solicitud = {
+      //Del pedido
+      idPedido: new Date().valueOf(),
+      nombre: this.form.get('inputnombre').value,
+      fechaDeNacimiento: this.form.get('inputfecha').value,
+      direccionDeEnvio: this.form.get('inputdireccion').value,
+      ciudad: this.form.get('inputciudad').value,
+      //Arreglo de los productos del pedido
+      pedidos: this.prodPedidos
+    }
+    this.prodSolicitados.push(this.solicitud);
+    console.log("Como se guardo en el locale Storage: ", this.prodSolicitados);
+    localStorage.setItem("pedidos", JSON.stringify(this.prodSolicitados));
   }
 
   onSubmitPeque(event:any, producto: ModeloProductos){
@@ -66,6 +101,22 @@ export class ProductosComponent implements OnInit {//AfterViewInit { //OnInit {
     this.contadorComprar += 1;
     console.log("Se esperan " + this.tamaLista + " comprar y se han dado click en: " + this.contadorComprar);
     //debugger;
+    this.pedidoNew = {
+      //Del producto
+      'producto': {
+        'descripcion': producto.descripcion,
+        'cantidadDisponible': producto.cantidadDisponible,
+        'imagen': producto.imagen,
+        'miniatura': producto.miniatura,
+        'idProducto': producto.idProducto,
+        'categoria': producto.categoria,
+        'precio': producto.precio,
+      },
+      //Agregados
+      'cantidad': event.currentTarget[0].value,
+      'color': event.currentTarget[1].value
+    };
+    this.prodPedidos.push(this.pedidoNew);
   }
 
   onFileChange(event:any) {

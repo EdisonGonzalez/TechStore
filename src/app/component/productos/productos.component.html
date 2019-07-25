@@ -1,66 +1,66 @@
-<h5 class="title pt-4">Lista</h5>
-<p>Recuerde agregar la cantidad y el color de los productos que desea comprar</p>
-<div class="row">
-  <div *ngFor="let producto of productssel; let i = index" class="col-lg-7">
-      <div class="card mb-3">
-        <div class="row no-gutters">
-          <div class="col-md-4">
-            <img [src]='producto.imagen' class="card-img" alt="...">
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title">{{producto.descripcion}}</h5>
-              <p class="card-text">Precio: {{producto.precio}}</p>
-              <form (ngSubmit)="onSubmitPeque($event, producto)">
-                <div class="form-group">
-                  <label for="selectCantidad">Cantidad:</label>
-                  <input class="form-control" type="number" id="selectCantidad" min="1"
-                    max="{{producto.cantidadDisponible}}" onKeyDown="return false" value="1" name="cantidad">
-                </div>
-                <div class="form-group">
-                  <label for="selectCiudad">Color:</label>
-                  <select class="form-control" id="selectCiudad" name="color">
-                    <option *ngFor="let color of colores">{{color}}</option>
-                  </select>
-                </div>
-                <button type="submit" class="btn btn-light">Comprar</button>
-              </form>
-              <p class="card-text"><small class="text-muted">{{producto.categoria}}</small></p>
+<div class="row mt-4">
+    <h3>Lista</h3>
+    <div *ngFor="let producto of productssel; let i = index">
+      <div class="col-lg-7">
+        <div class="card mb-3">
+          <div class="row no-gutters">
+            <div class="col-md-4">
+              <img [src]='producto.imagen' class="card-img" alt="...">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">{{producto.descripcion}}</h5>
+                <p class="card-text">Precio: {{producto.precio}}</p>
+                <form (ngSubmit)="onSubmitPeque($event, producto)">
+                  <div class="form-group">
+                    <label for="selectCantidad">Cantidad:</label>
+                    <input class="form-control" type="number" id="selectCantidad" min="1"
+                      max="{{producto.cantidadDisponible}}" onKeyDown="return false" value="1" name="cantidad">
+                  </div>
+                  <div class="form-group">
+                    <label for="selectCiudad">Color:</label>
+                    <select class="form-control" id="selectCiudad" name="color">
+                      <option *ngFor="let color of colores">{{color}}</option>
+                    </select>
+                  </div>
+                  <button type="submit" class="btn btn-light">Comprar</button>
+                </form>
+                <p class="card-text"><small class="text-muted">{{producto.categoria}}</small></p>
+              </div>
             </div>
           </div>
         </div>
       </div>
+    </div>
+    <div class="col-lg-5 bg-dark">
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="nombre" class="">Nombre</label>
+          <input type="text" class="form-control" formControlName="inputnombre" id="nombre" placeholder="Nombre">
+        </div>
+        <div class="form-group">
+          <label for="fecha" class="">Fecha de nacimiento</label>
+          <input type="date" class="form-control" formControlName="inputfecha" id="fecha">
+        </div>
+        <div class="form-group">
+          <label for="direccion" class="">Direccion de Envío</label>
+          <input type="text" class="form-control" formControlName="inputdireccion" id="direccion"
+            placeholder="Direccion de envío">
+        </div>
+        <div class="form-group">
+          <label for="Ciudad">Ciudad</label>
+          <select class="form-control" id="ciudad" formControlName="inputciudad">
+            <option *ngFor="let ciudad of ciudades">{{ciudad}}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="file">Cédula de Ciudadanía</label>
+          <input type="file" class="form-control-file" formControlName="inputfile" id="file" aria-describedby="fileHelp"
+            accept="application/pdf,application/vnd.ms-excel" size="1048576" (change)="onFileChange($event)">
+          <small id="fileHelp" class="form-text text-muted">Tamaño máximo de 2MB</small>
+        </div>
+        <button type="submit" class="btn btn-light" [disabled]="tamaLista!=contadorComprar || form.invalid || tamaLista==0">Comprar</button>
+      </form>
+    </div>
+    Form: {{form.value | json}}}
   </div>
-  <div class="dataForm col-lg-5 bg-white">
-    <h5 class="py-4">Ingrese los datos de envio</h5>
-    <form [formGroup]="form" (ngSubmit)="onSubmit()">
-      <div class="form-group">
-        <label for="nombre" class="">Nombre</label>
-        <input type="text" class="form-control" formControlName="inputnombre" id="nombre" placeholder="Nombre">
-      </div>
-      <div class="form-group">
-        <label for="fecha" class="">Fecha de nacimiento</label>
-        <input type="date" class="form-control" formControlName="inputfecha" id="fecha">
-      </div>
-      <div class="form-group">
-        <label for="direccion" class="">Direccion de Envío</label>
-        <input type="text" class="form-control" formControlName="inputdireccion" id="direccion"
-          placeholder="Direccion de envío">
-      </div>
-      <div class="form-group">
-        <label for="Ciudad">Ciudad</label>
-        <select class="form-control" id="ciudad" formControlName="inputciudad">
-          <option *ngFor="let ciudad of ciudades">{{ciudad}}</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="file">Cédula de Ciudadanía</label>
-        <input type="file" class="form-control-file" formControlName="inputfile" id="file" aria-describedby="fileHelp"
-          accept="application/pdf,application/vnd.ms-excel" size="1048576" (change)="onFileChange($event)">
-        <small id="fileHelp" class="form-text text-muted">Tamaño máximo de 2MB</small>
-      </div>
-      Form: {{form.value | json}}}
-      <button type="submit" class="btn btn-light" [disabled]="tamaLista!=contadorComprar && form.invalid">Comprar</button>
-    </form>
-  </div>
-</div>
