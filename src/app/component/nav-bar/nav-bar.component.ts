@@ -9,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class NavBarComponent implements OnInit {
 
   cantidadCompras: number; //Provista desde el servicio, segun la cantidad de clicks
+  inputItem: string; //Item ingresado en el search
 
   constructor(private dataService: SharingDataService) { }
 
@@ -21,4 +22,9 @@ export class NavBarComponent implements OnInit {
     )
   }
 
+  onChange(event: any) {
+    console.log(event);
+    //this.inputItem = event;
+    this.dataService.changecurrentDataSearch(event); //Enviando al comun que se encuentra en que valor se encuentra el search
+  }
 }

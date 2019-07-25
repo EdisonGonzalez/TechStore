@@ -1,54 +1,40 @@
 <div class="table-responsive">
-    <table class="table table-hover">
-        <thead>
-            <tr>
-              <th scope="col">ID</th>
-              <th scope="col">Datos del cliente</th>
-              <th scope="col">Productos</th>
-              <th scope="col">Total</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>1</td>
-              <td>
-                <ul>
-                  <li>Evelin Herrera</li>
-                  <li>Cra 43 aa # 88/123</li>
-                  <li>Medellin</li>
-                </ul>
-              </td>
-              <td>
-                <ul>
-                  <li>Huawei P10</li>
-                  <li>Apple iPhone X</li>
-                  <li>Samsung QLED</li>
-                </ul>
-              </td>
-              <td>
-                <p>{{20000 | currency}}</p>
-              </td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>
-                <ul>
-                  <li>Evelin Herrera</li>
-                  <li>Cra 43 aa # 88/123</li>
-                  <li>Medellin</li>
-                </ul>
-              </td>
-              <td>
-                <ul>
-                  <li>Huawei P10</li>
-                  <li>Apple iPhone X</li>
-                  <li>Samsung QLED</li>
-                </ul>
-              </td>
-              <td>
-                <p>{{20000 | currency}}</p>
-              </td>
-            </tr>
-          </tbody>
-    </table>
-  </div>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Datos del cliente</th>
+        <th scope="col">Productos</th>
+        <th scope="col">Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let pedido of prodSolicitados | filter:inputData; let i=index">
+        <td>{{pedido.idPedido}}</td>
+        <td>
+          <ul>
+            <li>{{pedido.nombre}}</li>
+            <li>{{pedido.direccionDeEnvio}}</li>
+            <li>{{pedido.ciudad}}</li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li *ngFor="let ped of pedido.pedidos" class="mb-3">
+              <p class="list-text">{{ped.producto.descripcion}}</p>
+              <!-- <p>(<a class="nav-link"
+                          routerLink="catalogo">Ref</a>: {{ped.producto.idProducto}})</p> -->
+              <p class="list-text"><b>Cant: </b>{{ped.cantidad}} </p>
+              <p class="list-text"><b>Valor Uni: </b>{{ped.producto.precio | currency:'COP'}}</p>
+              <p class="list-text">{{ped.color}}</p>
+              <p class="list-text"><a class="nav-link" routerLink="catalogo">Ref</a>: {{ped.producto.idProducto}}</p>
+            </li>
+          </ul>
+        </td>
+        <td>
+          <p>{{total[i] | currency:'COP'}}</p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -6,6 +6,7 @@ import { COLORS } from './../../const/COLORS';
 import { SharingDataService } from './../../service/sharing-data.service';
 import { Component, OnInit } from '@angular/core';
 import { ModeloProductos } from 'src/app/interface/modelo-productos';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-productos',
@@ -31,9 +32,11 @@ export class ProductosComponent implements OnInit {//AfterViewInit { //OnInit {
 
   constructor(
     private dataService: SharingDataService,
-    private formBuilder: FormBuilder) {}
+    private formBuilder: FormBuilder,
+    private router: Router) {}
 
   ngOnInit() {
+    //Obteniendo la lista de productos a solicitar o pedir
     this.dataService.currentDataProdsSel.subscribe(
       productosClicks => {
         this.productssel = productosClicks; //Obteniendo el valor del servicio
@@ -43,6 +46,7 @@ export class ProductosComponent implements OnInit {//AfterViewInit { //OnInit {
     this.crearFormulario();
     console.log("Se esperan " + this.tamaLista + " comprar y se han dado click en: " + this.contadorComprar);
 
+    this.dataService.changecurrentPageSel(2); //2 - Pagina de Productos
   }
 
   crearFormulario(){
@@ -61,6 +65,7 @@ export class ProductosComponent implements OnInit {//AfterViewInit { //OnInit {
     alert("Se envio");
     this.obtener_localstorage("pedidos");
     this.grabar_localstorage();
+    this.router.navigateByUrl('pedidos');
   }
 
   obtener_localstorage(item: string){

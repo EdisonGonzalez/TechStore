@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CardComponent } from './component/card/card.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FilterPipe } from './pipe/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ProductosComponent,
     NavBarComponent,
     ModalComponent,
-    CardComponent
+    CardComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

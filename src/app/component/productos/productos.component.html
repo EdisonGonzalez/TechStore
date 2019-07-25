@@ -10,7 +10,7 @@
           <div class="col-md-8">
             <div class="card-body">
               <h5 class="card-title">{{producto.descripcion}}</h5>
-              <p class="card-text">Precio: {{producto.precio}}</p>
+              <p class="card-text">Precio: {{producto.precio | currency:'COP'}}</p>
               <form (ngSubmit)="onSubmitPeque($event, producto)">
                 <div class="form-group">
                   <label for="selectCantidad">Cantidad:</label>
@@ -23,7 +23,7 @@
                     <option *ngFor="let color of colores">{{color}}</option>
                   </select>
                 </div>
-                <button type="submit" class="btn btn-light">Comprar</button>
+                <button type="submit" class="btn btn-light">Confirmar</button>
               </form>
               <p class="card-text"><small class="text-muted">{{producto.categoria}}</small></p>
             </div>
@@ -58,8 +58,8 @@
         <input type="file" class="form-control-file" formControlName="inputfile" id="file" aria-describedby="fileHelp"
           accept="application/pdf,application/vnd.ms-excel" size="1048576" (change)="onFileChange($event)">
         <small id="fileHelp" class="form-text text-muted">Tamaño máximo de 2MB</small>
+        <button type="submit" class="btn btn-light" [disabled]="tamaLista!=contadorComprar || form.invalid || tamaLista==0">Comprar</button>
       </div>
-      <button type="submit" class="btn btn-light" [disabled]="tamaLista!=contadorComprar || form.invalid || tamaLista==0">Comprar</button>
     </form>
   </div>
 </div>

@@ -1,5 +1,5 @@
-<nav class="navbar navbar-expand-sm navbar-dark ">
-    <a class="navbar-brand text-white" routerLink="catalogo">Tiendas tecnologica</a>
+<nav class="navbar navbar-expand-sm navbar-dark">
+    <a class="navbar-brand text-white" routerLink="catalogo">Tech Store</a>
     <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
       aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation"></button>
     <div class="collapse navbar-collapse" id="collapsibleNavId">
@@ -12,8 +12,7 @@
         </li>
       </ul>
       <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="text" placeholder="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        <input class="form-control mr-sm-2" [(ngModel)]="inputItem" (ngModelChange)="onChange($event)" type="text" placeholder="Search" name="search">
       </form>
     </div>
   </nav>
