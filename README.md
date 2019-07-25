@@ -38,54 +38,45 @@ https://fvwzxk56cg.execute-api.us-east-1.amazonaws.com/mock/productos
 
 ### Capturas de pantalla
 1. 
-![alt text](https://raw.githubusercontent.com//EdisonGonzalez/TechStore/tree/develop/src/assets/CapturasPantallaDocumentar/VistaCatalogo.png)
+![alt text](https://raw.githubusercontent.com/EdisonGonzalez/TechStore/tree/develop/src/assets/CapturasPantallaDocumentar/VistaCatalogo.png)
 
 2. 
-![alt text](https://raw.githubusercontent.com//EdisonGonzalez/TechStore/tree/develop/src/assets/CapturasPantallaDocumentar/VistaProductos.png)
+![alt text](https://raw.githubusercontent.com/EdisonGonzalez/TechStore/tree/develop/src/assets/CapturasPantallaDocumentar/VistaProductos.png)
 
 3. 
-![alt text](https://raw.githubusercontent.com//EdisonGonzalez/TechStore/tree/develop/src/assets/CapturasPantallaDocumentar/VistaPedidos.png)
+![alt text](https://raw.githubusercontent.com/EdisonGonzalez/TechStore/tree/develop/src/assets/CapturasPantallaDocumentar/VistaPedidos.png)
 
 4. 
-![alt text](https://raw.githubusercontent.com//EdisonGonzalez/TechStore/tree/develop/src/assets/CapturasPantallaDocumentar/ClickSobreUnaImagenCard.png)
+![alt text](https://raw.githubusercontent.com/EdisonGonzalez/TechStore/tree/develop/src/assets/CapturasPantallaDocumentar/ClickSobreUnaImagenCard.png)
 
 5. 
-![alt text](https://raw.githubusercontent.com//EdisonGonzalez/TechStore/tree/develop/src/assets/CapturasPantallaDocumentar/FuncionalidadSearchCatalogoYPedidos.png)
+![alt text](https://raw.githubusercontent.com/EdisonGonzalez/TechStore/tree/develop/src/assets/CapturasPantallaDocumentar/FuncionalidadSearchCatalogoYPedidos.png)
 
 ## Informacion Adicional - Angular CLI para este proyecto
 ng --version
+-Angular CLI: 7.0.7
+-Node: 10.13.0
+-OS: darwin x64
+-Angular: 7.0.4
+-... animations, common, compiler, compiler-cli, core, forms
+-... http, language-service, platform-browser
+-... platform-browser-dynamic, router
 
-     _                      _                 ____ _     ___
-    / \   _ __   __ _ _   _| | __ _ _ __     / ___| |   |_ _|
-   / △ \ | '_ \ / _` | | | | |/ _` | '__|   | |   | |    | |
-  / ___ \| | | | (_| | |_| | | (_| | |      | |___| |___ | |
- /_/   \_\_| |_|\__, |\__,_|_|\__,_|_|       \____|_____|___|
-                |___/
-    
-
-Angular CLI: 7.0.7
-Node: 10.13.0
-OS: darwin x64
-Angular: 7.0.4
-... animations, common, compiler, compiler-cli, core, forms
-... http, language-service, platform-browser
-... platform-browser-dynamic, router
-
-Package                           Version
------------------------------------------------------------
-@angular-devkit/architect         0.10.7
-@angular-devkit/build-angular     0.10.7
-@angular-devkit/build-optimizer   0.10.7
-@angular-devkit/build-webpack     0.10.7
-@angular-devkit/core              7.0.7
-@angular-devkit/schematics        7.0.7
-@angular/cli                      7.0.7
-@ngtools/webpack                  7.0.7
-@schematics/angular               7.0.7
-@schematics/update                0.10.7
-rxjs                              6.3.3
-typescript                        3.1.6
-webpack                           4.19.1
+*Package                           Version
+*-----------------------------------------------------------
+*@angular-devkit/architect         0.10.7
+*@angular-devkit/build-angular     0.10.7
+*@angular-devkit/build-optimizer   0.10.7
+*@angular-devkit/build-webpack     0.10.7
+*@angular-devkit/core              7.0.7
+*@angular-devkit/schematics        7.0.7
+*@angular/cli                      7.0.7
+*@ngtools/webpack                  7.0.7
+*@schematics/angular               7.0.7
+*@schematics/update                0.10.7
+*rxjs                              6.3.3
+*typescript                        3.1.6
+*webpack                           4.19.1
 
 ### Development server
 
