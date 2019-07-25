@@ -1,5 +1,5 @@
+import { ConsumoApiService } from './../../service/consumo-api.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ConsumoApiService } from 'src/app/service/consumo-api.service';
 import { ModeloProductos } from 'src/app/interface/modelo-productos';
 import { ModalComponent } from '../modal/modal.component';
 
@@ -29,9 +29,4 @@ export class CatalogoComponent implements OnInit {
       }
     );
   }
-
-  openModal(img) {
-    this.modalProd.openModal(img)
-  }
-
 }

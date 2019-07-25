@@ -1,85 +1,93 @@
 import { CITIES } from './../../const/CITIES';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { COLORS } from './../../const/COLORS';
 import { SharingDataService } from './../../service/sharing-data.service';
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ModeloProductos } from 'src/app/interface/modelo-productos';
-import { log } from 'util';
 
 @Component({
   selector: 'app-productos',
   templateUrl: './productos.component.html',
   styleUrls: ['./productos.component.css']
 })
-
 export class ProductosComponent implements OnInit {//AfterViewInit { //OnInit {
 
   productssel: ModeloProductos[]; //Valor que obtenemos del servicio compartido entre componentes
-  cantidad: number[][];
-  //foo: any[];
-  foo: Array<number>[];
-  matrix: number[][] = [[1],[1],[1],[1],[1],[1],[1],[1],[1],[1],[1],[1],[1]];
-
-  public things: number[][];
-
-  matriz = [];
+  colores: String[] = COLORS;
   ciudades: String[] = CITIES;
+  form: FormGroup;
+  theFile: any = null;
+  MAX_SIZE: number = 1024*1024;
+  files: File = null;
+  valueCantColor: any = [];
+  tamaLista: number;
+  contadorComprar: number = 0;
 
-  constructor(private dataService: SharingDataService) {
-    this.things = [];
-    for(var i: number = 0; i < 10; i++) {
-      this.things[i] = [];
-      for(var j: number = 1; j<= 10; j++) {
-          this.things[i][j] = j;
-      }
-  }
-
-    this.dataService.currentDataProdsSel.subscribe(
-      productosClicks => {
-        //debugger;
-        this.productssel = productosClicks; //Obteniendo el valor del servicio
-        this.matrix[0] = [1, 2, 3, 4, 5];
-        //this.matriz.push(new Array(10).fill(0).map((e,i)=>i+1));
-        debugger;
-        //console.log(productosClicks);
-        //console.log(this.productssel);
-        //this.foo = new Array(this.productssel[0].cantidadDisponible).fill(0).map((e,i)=>i+1);
-        /*
-        for (var i = 0; i <= this.productssel.length; i++) {
-          for(var j=1; j <= this.productssel[i].cantidadDisponible; j++) {
-            this.cantidad[i][j-1] = j;
-            console.log(this.cantidad);
-          }
-       }*/
-      }
-    )
-  }
+  constructor(
+    private dataService: SharingDataService,
+    private formBuilder: FormBuilder) {}
 
   ngOnInit() {
-    //ngAfterViewInit(){
-      /*
     this.dataService.currentDataProdsSel.subscribe(
       productosClicks => {
-        debugger;
         this.productssel = productosClicks; //Obteniendo el valor del servicio
-        this.matriz[0] = new Array(10).fill(0).map((e,i)=>i+1);
-        //console.log(productosClicks);
-        //console.log(this.productssel);
-        //this.foo = new Array(this.productssel[0].cantidadDisponible).fill(0).map((e,i)=>i+1);
-        /*
-        for (var i = 0; i <= this.productssel.length; i++) {
-          for(var j=1; j <= this.productssel[i].cantidadDisponible; j++) {
-            this.cantidad[i][j-1] = j;
-            console.log(this.cantidad);
-          }
-       }*/
-       /*
-      },
-      error => {
-        console.log(error);
+        this.tamaLista = productosClicks.length; //El length de la lista
       }
     )
-*/
+    this.crearFormulario();
+    console.log("Se esperan " + this.tamaLista + " comprar y se han dado click en: " + this.contadorComprar);
 
-    console.log("Arreglo numeros", this.foo[0]);
   }
 
+  crearFormulario(){
+    this.form = this.formBuilder.group(
+      {
+        inputnombre: ['', [Validators.required]],
+        inputfecha: ['', [Validators.required]],
+        inputdireccion: ['', [Validators.required]],
+        inputciudad: ['LETICIA', [Validators.required]],
+        inputfile: ['', [Validators.required]]
+      }
+    )
+  }
+
+  onSubmit(){
+    alert("Se envio");
+  }
+
+  onSubmitPeque(event:any, producto: ModeloProductos){
+    alert("Enviado");
+    console.log("Los valores ingresados son cantidad: ", event.currentTarget[0].value);
+    console.log("Los valores ingresados son color: ", event.currentTarget[1].value);
+    this.valueCantColor.push([event.currentTarget[0].value, event.currentTarget[1].value]);
+    event.currentTarget[2].disabled = "true";
+    console.log("Arreglo total: ", this.valueCantColor);
+    console.log("Producto seleccionado: ", producto);
+    this.contadorComprar += 1;
+    console.log("Se esperan " + this.tamaLista + " comprar y se han dado click en: " + this.contadorComprar);
+    //debugger;
+  }
+
+  onFileChange(event:any) {
+    console.log("Dentro de onFileChange");
+    this.theFile = <File>event.target.files[0];
+    // See if any file(s) have been selected from input
+    if (event.target.files && event.target.files.length > 0) {
+      // Don't allow file sizes over 1MB
+      if (event.target.files[0].size < this.MAX_SIZE) {
+        // Set theFile property
+        console.log("Menor de 1MB");
+        alert('Pesa menos de 1MB')
+      }
+      else {
+        // Display error message
+        console.log("Mayor de 1MB");
+        //debugger;
+        this.files = <File>null;
+        this.form.controls['inputfile'].setValue("");
+        alert('El archivo pesa mas de 1MB');
+        //this.messages.push("File: " + event.target.files[0].name + " is too large to upload.");
+      }
+    }
+  }
 }

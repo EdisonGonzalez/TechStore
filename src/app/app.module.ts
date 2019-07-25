@@ -12,6 +12,8 @@ import { ModalComponent } from './component/modal/modal.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CardComponent } from './component/card/card.component';
 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +27,9 @@ import { CardComponent } from './component/card/card.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

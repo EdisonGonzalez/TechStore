@@ -1,23 +1,21 @@
+import { ModeloProductos } from './../interface/modelo-productos';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { ModeloProductos } from '../interface/modelo-productos';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SharingDataService {
 
-    // Bandera para cambiar badge de productos
-    private cantCompras: number = 0; //Valor por defecto -> 0
-    private dataCantidadCompras = new BehaviorSubject(this.cantCompras);
-    currentCantidadCompras = this.dataCantidadCompras.asObservable();
+  // Bandera para cambiar badge de productos
+  private cantCompras: number = 0; //Valor por defecto -> 0
+  private dataCantidadCompras = new BehaviorSubject(this.cantCompras);
+  currentCantidadCompras = this.dataCantidadCompras.asObservable();
 
-    // Variable para enviar a productos seleccionados
-    private prodSel: ModeloProductos[] = []; //Valor por defecto -> Vacio
-    private dataProdsSel = new BehaviorSubject(this.prodSel);
-    currentDataProdsSel = this.dataProdsSel.asObservable();
-
-
+  // Variable para enviar a productos seleccionados
+  private prodSel: ModeloProductos[] = []; //Valor por defecto -> Vacio
+  private dataProdsSel = new BehaviorSubject(this.prodSel);
+  currentDataProdsSel = this.dataProdsSel.asObservable();
 
   constructor() { }
 
