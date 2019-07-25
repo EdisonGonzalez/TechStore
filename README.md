@@ -38,19 +38,19 @@ https://fvwzxk56cg.execute-api.us-east-1.amazonaws.com/mock/productos
 
 ### Capturas de pantalla
 1. 
-![alt text](https://raw.githubusercontent.com/EdisonGonzalez/TechStore/tree/develop/src/assets/CapturasPantallaDocumentar/VistaCatalogo.png)
+![alt text](https://raw.githubusercontent.com/EdisonGonzalez/TechStore/develop/src/assets/CapturasPantallaDocumentar/VistaCatalogo.png)
 
 2. 
-![alt text](https://raw.githubusercontent.com/EdisonGonzalez/TechStore/tree/develop/src/assets/CapturasPantallaDocumentar/VistaProductos.png)
+![alt text](https://raw.githubusercontent.com/EdisonGonzalez/TechStore/develop/src/assets/CapturasPantallaDocumentar/VistaProductos.png)
 
 3. 
-![alt text](https://raw.githubusercontent.com/EdisonGonzalez/TechStore/tree/develop/src/assets/CapturasPantallaDocumentar/VistaPedidos.png)
+![alt text](https://raw.githubusercontent.com/EdisonGonzalez/TechStore/develop/src/assets/CapturasPantallaDocumentar/VistaPedidos.png)
 
 4. 
-![alt text](https://raw.githubusercontent.com/EdisonGonzalez/TechStore/tree/develop/src/assets/CapturasPantallaDocumentar/ClickSobreUnaImagenCard.png)
+![alt text](https://raw.githubusercontent.com/EdisonGonzalez/TechStore/develop/src/assets/CapturasPantallaDocumentar/ClickSobreUnaImagenCard.png)
 
 5. 
-![alt text](https://raw.githubusercontent.com/EdisonGonzalez/TechStore/tree/develop/src/assets/CapturasPantallaDocumentar/FuncionalidadSearchCatalogoYPedidos.png)
+![alt text](https://raw.githubusercontent.com/EdisonGonzalez/TechStore/develop/src/assets/CapturasPantallaDocumentar/FuncionalidadSearchCatalogoYPedidos.png)
 
 ## Informacion Adicional - Angular CLI para este proyecto
 ng --version
