@@ -1,6 +1,1 @@
-export const COLORS = [
-  'Negro',
-  'Blanco',
-  'Azul',
-  'Rosado'
-]
+export const COLORS = ["Negro", "Blanco", "Azul", "Rosado"];

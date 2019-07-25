@@ -1,12 +1,12 @@
-ul{
+ul {
   list-style-type: none;
   padding-left: 0 !important;
- }
-
-.list-text{
-  margin-bottom: 0rem !important
 }
-.nav-link{
+
+.list-text {
+  margin-bottom: 0rem !important;
+}
+.nav-link {
   display: inline;
-  padding: 0px ;
+  padding: 0px;
 }

@@ -22,8 +22,6 @@
           <ul>
             <li *ngFor="let ped of pedido.pedidos" class="mb-3">
               <p class="list-text">{{ped.producto.descripcion}}</p>
-              <!-- <p>(<a class="nav-link"
-                          routerLink="catalogo">Ref</a>: {{ped.producto.idProducto}})</p> -->
               <p class="list-text"><b>Cant: </b>{{ped.cantidad}} </p>
               <p class="list-text"><b>Valor Uni: </b>{{ped.producto.precio | currency:'COP'}}</p>
               <p class="list-text">{{ped.color}}</p>
